@@ -1,0 +1,19 @@
+{
+  "name": "wcrp-development-utilities",
+  "version": "2.3.0",
+  "description": "WCRP development operations bot with ticket panels, staff management, QA lifecycle, asset registry, development tasks, transfer batches, logging, and cross-server role synchronization.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "check": "node --check index.js && node --check test.js",
+    "test": "node test.js"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.25.1",
+    "dotenv": "^16.6.1",
+    "luxon": "^3.7.1"
+  }
+}
