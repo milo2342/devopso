@@ -1,0 +1,27 @@
+{
+  "syncRoles": [],
+  "guilds": {},
+  "tickets": {},
+  "qaSubmissions": {},
+  "transfers": [],
+  "transferPosts": {},
+  "staff": {},
+  "tasks": {},
+  "assets": {},
+  "transferBatches": {},
+  "agreements": {},
+  "agreementRequests": {},
+  "adminRoleName": null,
+  "adminRequests": {},
+  "verification": {
+    "mainGuildId": null,
+    "logChannelId": null,
+    "guilds": {},
+    "users": {},
+    "oauthStates": {},
+    "joinGuilds": {},
+    "manualJoinGuilds": {},
+    "joinAccessRoleIds": []
+  },
+  "dataSchemaVersion": 3
+}
