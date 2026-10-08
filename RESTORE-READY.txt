@@ -1,0 +1,13 @@
+WCRP Development Utilities v2.10.0
+
+This build already contains the supplied sanitized WCRP bot-data backup as bot-data.json.
+
+Railway behavior:
+- If /data/bot-data.json already exists, the bot keeps using it and does NOT overwrite live production data.
+- If /data/bot-data.json is missing, the bot automatically seeds /data/bot-data.json from the packaged bot-data.json backup on startup.
+- Pending OAuth states are intentionally not restored.
+- New FiveM connect/disconnect channel fields are included and start unset until you run:
+  /verification connect-logs channel:#channel
+  /verification disconnect-logs channel:#channel
+
+Keep the Railway volume mounted at /data and BOT_DATA_PATH=/data/bot-data.json (or let the default /data path be used).
