@@ -1,0 +1,34 @@
+West Coast Roleplay DevOps v2.12.0
+
+TICKETS (all ticket types)
+- New pink welcome embed: "Welcome to West Coast Roleplay DevOps Support", response-time notice, the roles that can see the ticket,
+  and the user's answers in code blocks. Footer: "DevOps - Ticket System". Every existing ticket option/form is unchanged.
+- A yellow "You selected that this ticket is for ..." reply is posted automatically for whichever ticket type was opened.
+- New Claim button next to Update Status / Close Ticket. It also fires from /ticket-claim. When claimed, the button shows "Claimed",
+  the embed shows "Claimed By", and the bot posts the "Hello, my name is @user & I will be assisting you today." message.
+  /ticket-unclaim re-enables the button.
+- Marking an item for transfer (the Mark for Transfer button after QA, or /mark-for-transfer) pastes the "This ticket has been marked
+  as pushed." message into the ticket with an auto-updating Discord timestamp for the next Saturday 4:00 PM (TIMEZONE, default
+  America/New_York - same schedule as the existing transfer scheduler). Posted once per transfer.
+
+TEMPLATES
+- /template add identifier name image [type] [count]   (Developers / Transfer Managers / Admins)
+- /template lookup query                                (everyone; autocomplete on spawn code / resource name / vest ID)
+- /template remove template                             (Developers / Transfer Managers / Admins)
+- Lookup posts the green "Templates for <name> (<identifier>)" embed with "(count) - View Texture" links.
+- Images are stored in <data dir>/templates (the Railway /data volume) and served by the bot's web server at
+  PUBLIC_BASE_URL/templates/<file>, so links do not expire like Discord attachment links. PNG/JPG/GIF/WEBP only, 20 MB max.
+  Files are validated by content, not file name. Template images are NOT part of /data backup exports (only their records are).
+
+TRANSCRIPTS
+- Replaced the plain .txt dump with a clean standalone HTML transcript (Discord-style layout, date dividers, grouped messages,
+  resolved @mentions, embeds, attachments, buttons, replies, threads, participant list). The log message is now a summary embed
+  plus the .html file. Open the file in any browser.
+
+BRANDING
+- User-facing "WCRP" text is now "West Coast Roleplay". Not changed on purpose: Discord role names used by RoleSync, file names,
+  the stored agreement version id (WCRP-DEV-1.0), and the WGN (West Coast Gaming Network) guild-allowlist notice.
+
+DEPLOY
+- Slash commands re-register automatically on startup (the new /template command appears after the bot restarts).
+- New files: schedule.js, transcript.js (keep them next to index.js).

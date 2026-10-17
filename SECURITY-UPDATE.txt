@@ -1,0 +1,56 @@
+WCRP Development Utilities v2.11.1 - Unauthorized Guild Notice
+
+UNAUTHORIZED INVITES
+- Authorized-guild enforcement remains active: unapproved guilds are rejected automatically.
+- When an unauthorized guild adds the bot, it checks the Discord Bot Add audit log to identify the person who invited it.
+- That user is DMed before the bot leaves, explaining that WGN DevOps is restricted to official WGN guilds and directing mistakes to @teo.dev_.
+- The bot retries the audit-log lookup briefly because Discord audit entries can be delayed.
+- If the inviter cannot be identified because View Audit Log is unavailable, the guild owner receives the notice instead.
+- Your security-owner DM now records who was contacted and whether delivery succeeded.
+- Startup cleanup uses the same DM-and-leave path for any unauthorized guild found after a restart.
+
+WCRP Development Utilities v2.11.0 - Major Security Suite
+
+OWNER
+- Discord ID 939620924213309451 remains the only account that can use /syncrole, /syncmember, /unsync, /rolesync, /security, and /data restore/backup controls.
+
+GUILD ALLOWLIST
+- Commands are no longer registered globally.
+- Commands are registered only inside owner-authorized Discord servers.
+- Unauthorized invites are detected and the bot leaves automatically.
+- /security allow-guild guild_id:<id>
+- /security remove-guild guild_id:<id>
+- /security guilds
+
+ROLE SYNC SAFETY
+- /syncrole preview role:<role> previews role coverage before configuration changes.
+- /rolesync preview user:<user> previews a manual member sync.
+- /syncmember and /unsync automatically create restore points.
+- /rolesync history lists recent restore points.
+- /rolesync rollback snapshot:<id> restores the saved RoleSync state and creates a new safety restore point first.
+
+DATA SAFETY
+- /data backup remains sanitized.
+- /data status reports storage/backup health.
+- /data restore accepts a sanitized JSON backup and requires the word RESTORE.
+- A server-side pre-restore backup is created before restoration.
+- Sanitized automatic rotating backups run at startup and every 6 hours; latest 10 are retained.
+- Schema migrations preserve older backups.
+
+EMERGENCY SECURITY
+- /security lockdown enabled:true blocks every non-owner command, button, menu, and modal interaction.
+- /security maintenance enabled:true pauses automatic RoleSync and FiveM changes.
+- /security subsystem can independently disable RoleSync, OAuth, FiveM, or verification.
+- /security command-role-add can require an extra role for a command without allowing it to bypass existing Discord/Admin checks.
+- /security events shows recent denied/tamper security activity.
+
+FIVEM API HARDENING
+- Requests now require sentAt and unique requestId fields.
+- Requests older than 2 minutes or repeated request IDs are rejected.
+- Per-IP rate limiting added.
+- FIVEM_VERIFICATION_SECRET_NEXT supports zero-downtime secret rotation.
+- Update fivem-server.lua when deploying this version because older resources do not send replay-protection fields.
+
+PERSISTENCE
+- Railway live /data/bot-data.json still takes priority over the packaged sanitized restore seed.
+- The repository/ZIP remains flat; runtime /data/backups is created only on persistent storage.

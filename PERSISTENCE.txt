@@ -1,0 +1,13 @@
+WCRP Development Utilities persistence
+
+Recommended Railway volume mount: /data
+The bot automatically uses /data/bot-data.json when /data exists.
+
+Safety in v2.11.0:
+- Startup backup
+- Automatic backup every 6 hours
+- Latest 10 automatic backups retained in /data/backups
+- /data backup exports a sanitized user-downloadable JSON
+- /data restore requires owner access + RESTORE confirmation and creates a pre-restore backup first
+
+The packaged bot-data.json is only a sanitized restore seed. Existing /data/bot-data.json always takes priority.
